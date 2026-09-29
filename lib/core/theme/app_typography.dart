@@ -37,7 +37,10 @@ abstract final class AppTypography {
   static TextStyle style(AppLang lang, AppFontWeight weight, int size) {
     if (!sizes.contains(size)) {
       throw ArgumentError.value(
-          size, 'size', 'not in the Figma type scale $sizes',);
+        size,
+        'size',
+        'not in the Figma type scale $sizes',
+      );
     }
     final isKo = lang == AppLang.ko;
     return TextStyle(

@@ -38,8 +38,10 @@ void main() {
     });
 
     test('rejects sizes outside the Figma scale', () {
-      expect(() => AppTypography.ko(AppFontWeight.regular, 17),
-          throwsArgumentError,);
+      expect(
+        () => AppTypography.ko(AppFontWeight.regular, 17),
+        throwsArgumentError,
+      );
     });
   });
 }
