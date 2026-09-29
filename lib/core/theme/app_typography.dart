@@ -10,6 +10,7 @@ enum AppFontWeight { light, regular, medium, bold, extrabold }
 ///
 /// - KO: Gothic A1, line-height 1.5em (Figma 스타일 `KO bo 16`에서 확인)
 /// - ENG: Poppins, line-height 1.35em (Figma 스타일 `ENG re 14`에서 확인)
+/// - Figma는 여분 행간을 위아래 균등 분배하므로 `TextLeadingDistribution.even`을 사용한다.
 /// - weight 매핑 중 Figma로 확인된 것은 KO bold=800, ENG regular=400.
 ///   나머지는 가정값이며 docs/design-system.md "재확인 필요" 표에 기록되어 있다.
 abstract final class AppTypography {
@@ -48,6 +49,7 @@ abstract final class AppTypography {
       fontWeight: weightOf(lang, weight),
       fontSize: size.toDouble(),
       height: isKo ? koLineHeight : engLineHeight,
+      leadingDistribution: TextLeadingDistribution.even,
     );
   }
 

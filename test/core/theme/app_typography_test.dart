@@ -4,6 +4,14 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('AppTypography', () {
+    test('uses even leading distribution to match Figma line-height placement',
+        () {
+      expect(
+        AppTypography.ko(AppFontWeight.regular, 14).leadingDistribution,
+        TextLeadingDistribution.even,
+      );
+    });
+
     test('type scale has the 11 Figma sizes', () {
       expect(AppTypography.sizes, [11, 12, 13, 14, 15, 16, 18, 20, 24, 28, 32]);
     });

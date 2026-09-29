@@ -47,6 +47,10 @@ Figma에 시맨틱 정의가 없어 컴포넌트 사용례로 유도. `context.s
 - ENG: **Poppins**, line-height 1.35 — Figma 스타일 `ENG re 14` (node `164:10035`)에서 확인
 - size: 11 12 13 14 15 16 18 20 24 28 32
 - 사용: `AppTypography.ko(AppFontWeight.bold, 16)` / `AppTypography.eng(AppFontWeight.regular, 14)`
+- 전체 API: `AppTypography.style(AppLang, AppFontWeight, int size)`, `weightOf(lang, weight)`, `sizes`(허용 크기 11개). `sizes`에 없는 크기를 넘기면 `ArgumentError`. 토큰 밖 크기가 필요하면 하드코딩 대신 보고.
+- 행간 배치: `TextLeadingDistribution.even` (Figma의 여분 행간 상하 균등 분배와 일치).
+- `ThemeData.textTheme`의 12개 역할은 모두 KO(Gothic A1). 영문 전용 텍스트는 `AppTypography.eng` 를 명시적으로 사용.
+- `AppRadius.pill`(99)은 높이 198px 이하 위젯에서만 완전한 pill. 더 큰 위젯은 `StadiumBorder` 사용.
 - IA 페이지 프레임의 "Pretendard K Edition"은 토큰 폰트가 아니다. 사용 금지.
 
 weight 매핑:

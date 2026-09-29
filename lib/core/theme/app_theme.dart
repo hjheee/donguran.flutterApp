@@ -13,8 +13,15 @@ abstract final class AppTheme {
       onPrimary: semantic.onPrimary,
       secondary: AppColors.gray900,
       onSecondary: AppColors.white,
+      primaryContainer: AppColors.coral100,
+      onPrimaryContainer: AppColors.coral900,
+      secondaryContainer: AppColors.gray100,
+      onSecondaryContainer: AppColors.gray900,
+      tertiary: AppColors.blue500,
+      onTertiary: AppColors.white,
       surface: semantic.surface,
       onSurface: semantic.textPrimary,
+      surfaceTint: Colors.transparent,
       error: AppColors.coral700,
       outline: semantic.borderStrong,
       outlineVariant: semantic.border,
@@ -34,6 +41,7 @@ abstract final class AppTheme {
       ),
       navigationBarTheme: NavigationBarThemeData(
         backgroundColor: semantic.surface,
+        surfaceTintColor: Colors.transparent,
         indicatorColor: Colors.transparent,
         labelTextStyle:
             WidgetStatePropertyAll(AppTypography.ko(AppFontWeight.medium, 11)),

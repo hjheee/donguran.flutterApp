@@ -8,6 +8,12 @@ void main() {
   group('AppTheme.light', () {
     final theme = AppTheme.light();
 
+    test('surface tint is disabled so surfaces stay palette white', () {
+      expect(theme.colorScheme.surfaceTint, Colors.transparent);
+      expect(theme.navigationBarTheme.surfaceTintColor, Colors.transparent);
+      expect(theme.colorScheme.primaryContainer, AppColors.coral100);
+    });
+
     test('primary is coral500 and surfaces are white', () {
       expect(theme.colorScheme.primary, AppColors.coral500);
       expect(theme.scaffoldBackgroundColor, AppColors.white);
