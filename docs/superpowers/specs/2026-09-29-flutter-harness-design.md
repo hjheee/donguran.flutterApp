@@ -2,7 +2,7 @@
 
 - 날짜: 2026-09-29
 - 브랜치: `claude/flutter-figma-mcp-setup-808051`
-- 상태: 승인 대기
+- 상태: 승인됨 (2026-09-29)
 
 ## 1. 배경
 
@@ -115,7 +115,7 @@ test/
 lib/core/theme/
   app_colors.dart            # 원시 팔레트. Figma 라벨명 그대로
   app_semantic_colors.dart   # 역할 토큰
-  app_typography.dart        # Pretendard 11~32 × 5 weight
+  app_typography.dart        # Gothic A1(KO) / Poppins(ENG) 11~32 × 5 weight
   app_spacing.dart           # 2,4,8,10,12,16,20,24,28,32,36,40,48,56,64,80,100,120,156
   app_radius.dart            # 4,16,20,24,32, pill 99
   app_shadows.dart           # 3종
@@ -126,18 +126,20 @@ lib/core/theme/
 - 코랄(브랜드 primary) 10단계: FFEBE9 FFCFC9 FFA79C FF7F6E **F56751** F25641 E03C26 CC2A14 B21500 941100
 - 그린 10: D6FFCC B4F7A3 84ED6B 54DB32 3ACB15 00B206 00A606 189100 137500 105E00
 - 오렌지 10: FFEFDE FFE4C7 FFCC96 FFC180 FFB469 FFA340 F0872B D46300 B25300 803700
-- 옐로 10: FFF8D2 FFF3AD FFED89 FFE75D FFDC52 F7CD23 E4B700 (1개 미확인 node 166:5076) B08D00 896E00
+- 옐로 10: FFF8D2 FFF3AD FFED89 FFE75D FFDC52 F7CD23 E4B700 CBA300 B08D00 896E00
 - 블루 10: DFF0FF B3DCFF 72BDFF 4AABFF 2B9BFC 0E85ED 0074D9 0063BA 00549E 004B8C
 - 퍼플 10: F1E5FF E1C9FF C79CFF B682FA A56AF2 9559E3 8248CF 6E2FC2 5E20B0 4C1495
 - 웜 그레이 12: FBFAFA F2F1F0 E5E4E3 D1D0CF ADACAA 8C8A88 6E6B69 595654 474340 332F2B 262421 1A1817
 - White alpha: 4, 7, 10, 30, 50, 70, 90%, FFFFFF
 - Black alpha(base 141414): 4, 7, 10, 30, 50, 60, 70, 90%, 141414
 
-구현 시 컬러 토큰 프레임을 node-id로 개별 재조회해 **라벨 이름과 단계 번호를 확정**하고 미확인 값을 채운다. 헥스는 Figma 값 그대로, 임의 보정 금지.
+Figma 라벨 형식은 `<계열 약어> <단계>` (확인 예: `yel 800 = #CBA300`), 단계는 밝은 순 100~1000. Dart 토큰은 계열 전체 이름 + 단계(`yellow800`)로 쓰고, 그레이 12단계는 50, 100~900, 950, 1000으로 번호를 매긴다. 헥스는 Figma 값 그대로, 임의 보정 금지. 계열 약어(red/cor 등)는 Figma API 제한 해제 후 `design-system.md`에 보충한다.
 
 ### 6.2 타이포
-Pretendard(`assets/fonts/`, OFL 라이선스 동봉). size 11,12,13,14,15,16,18,20,24,28,32 × light/regular/medium/bold/extrabold = 55 스타일.
-line-height, letter-spacing은 컴포넌트 셋 164:10090을 재조회해 확정.
+Design system 페이지 확인값: **KO = Gothic A1, ENG = Poppins** (IA 페이지의 Pretendard는 토큰 폰트가 아님). 둘 다 Google Fonts OFL, `assets/fonts/`에 번들.
+size 11,12,13,14,15,16,18,20,24,28,32 × light/regular/medium/bold/extrabold × KO/ENG = 110 스타일. Figma 스타일명 예: `KO bo 16`, `ENG re 14`.
+line-height: KO 1.5em, ENG 1.35em (각 1개 샘플로 확인, 전 단계 동일 가정). letter-spacing 없음.
+weight 매핑 확인값: KO bold = 800(ExtraBold), ENG regular = 400. 나머지 가정: light 300, medium 500, KO extrabold 900, ENG bold 700, ENG extrabold 800. 가정 항목은 `design-system.md`에 "재확인 필요"로 표기.
 
 ### 6.3 시맨틱 유도
 Figma에 시맨틱 정의가 없어 컴포넌트 사용례에서 유도하고 근거를 `design-system.md`에 표로 남긴다.
@@ -160,7 +162,7 @@ Figma에 시맨틱 정의가 없어 컴포넌트 사용례에서 유도하고 �
 
 ### 6.5 테스트
 - 각 팔레트 단계 수와 대표 헥스 검증
-- 타이포 55개 모두 정의됨
+- 타이포 110개(11사이즈×5웨이트×2언어) 모두 생성됨
 - `AppTheme.light()` 생성 성공, primary == F56751
 
 ## 7. Figma 연동 워크플로
