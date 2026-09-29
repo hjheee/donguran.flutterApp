@@ -54,6 +54,9 @@ flutter:
         - asset: assets/fonts/Poppins-ExtraBold.ttf
           weight: 800
 
+# custom_lint/riverpod_lint 0.7.x 와 riverpod_generator 2.6 이 요구하는 analyzer 버전이 충돌해
+# build_runner 가 precompile 에 실패한다(2026-09-29). 아래 조합은 함께 동작이 확인된 세트.
+# custom_lint/riverpod_lint 를 올려 analyzer 를 자체 해석하게 되면 이 블록을 제거한다.
 dependency_overrides:
   analyzer: 7.7.1
   analyzer_plugin: 0.13.4
