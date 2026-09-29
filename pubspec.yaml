@@ -53,3 +53,8 @@ flutter:
           weight: 700
         - asset: assets/fonts/Poppins-ExtraBold.ttf
           weight: 800
+
+dependency_overrides:
+  analyzer: 7.7.1
+  analyzer_plugin: 0.13.4
+  custom_lint_visitor: 1.0.0+7.7.0
