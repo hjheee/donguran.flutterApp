@@ -21,6 +21,7 @@ feature ↔ Figma 세그먼트 대응은 각 `lib/features/<f>/README.md`와 `do
 
 ## 의존 방향
 `presentation → domain ← data`. `core`는 어느 feature에도 의존하지 않는다. feature 간 직접 import 금지. 공유가 필요하면 `core`로 올린다.
+예외: `core/router/app_router.dart`만 각 feature의 `presentation/*_page.dart`를 import해 라우트를 조립한다. 그 외 `core` 파일에서 feature import 금지.
 
 ## 상태관리 / DI (Riverpod)
 - 코드 생성 사용: `@riverpod` + `riverpod_generator`. 수동 `Provider(...)` 금지.
