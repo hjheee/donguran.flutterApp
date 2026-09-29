@@ -34,8 +34,8 @@ void main() {
     expect(AppRadius.pill, 99);
     expect(AppRadius.circular(AppRadius.r16), BorderRadius.circular(16));
     expect(
-        AppRadius.topSheet,
-        const BorderRadius.vertical(top: Radius.circular(32)),
+      AppRadius.topSheet,
+      const BorderRadius.vertical(top: Radius.circular(32)),
     );
   });
 
