@@ -7,7 +7,9 @@ plugins {
 
 android {
     namespace = "com.donguran.donguran"
-    compileSdk = flutter.compileSdkVersion
+    // 이 머신에 설치된 SDK(platforms;android-36, build-tools 36.0.0)에 맞춤. flutter 3.27 기본값(35/33.0.1)은 미설치.
+    compileSdk = 36
+    buildToolsVersion = "36.0.0"
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
