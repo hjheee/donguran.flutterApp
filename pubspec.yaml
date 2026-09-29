@@ -28,3 +28,28 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  fonts:
+    - family: GothicA1
+      fonts:
+        - asset: assets/fonts/GothicA1-Light.ttf
+          weight: 300
+        - asset: assets/fonts/GothicA1-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/GothicA1-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/GothicA1-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/GothicA1-Black.ttf
+          weight: 900
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Poppins-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Poppins-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Poppins-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Poppins-ExtraBold.ttf
+          weight: 800
